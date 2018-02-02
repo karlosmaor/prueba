@@ -31,7 +31,7 @@ app.delete('/api/product/:productId', (req,res) =>{
 
 })
 
-mongoose.connection('mongodb://146.71.79.215:27017/shop', (err,res)=>{
+mongoose.connect('mongodb://146.71.79.215:27017/shop', (err,res)=>{
   if(err)throw err
   console.log('Conexion a la base de datos exitosa...');
   app.listen(port, () => {
