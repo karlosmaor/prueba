@@ -32,7 +32,11 @@ app.delete('/api/product/:productId', (req,res) =>{
 })
 
 mongoose.connect('mongodb://localhost:27017/shop', (err,res)=>{
+<<<<<<< HEAD
   if(err)return console.log(`Error al conectar a la base de datos: ${err}`);
+=======
+  if(err)throw err
+>>>>>>> e9c7550c9a4b4316798b34f258ce55d854c9cc83
   console.log('Conexion a la base de datos exitosa...');
   app.listen(port, () => {
     console.log('API REST corriendo exitosamente')
