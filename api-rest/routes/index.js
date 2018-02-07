@@ -1,6 +1,6 @@
 'use strict'
 
-const express = require(express)
+const express = require('express')
 const api = express.Router()
 
 const ProductCtrl = require('./controles/product')
