@@ -49,7 +49,7 @@ function updatePoduct(req,res){
   })
 }
 
-funtion deleteProduct(req,res){
+function deleteProduct(req,res){
   let productId = req.params.productId
   Product.findById(productId, (err, product) =>{
     if(err) return res.status(500).send({message:`Error al borrar el producto de la base de datos ${err}`})
