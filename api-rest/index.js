@@ -58,8 +58,8 @@ app.put('/api/product/:productId', (req,res) =>{
 
 app.delete('/api/product/:productId', (req,res) =>{
   let productId = req.params.productId
-  Product.findById(productId, (err) =>{
-    if(err)return res.status(500).send({message:`Error al borrar el producto de la base de datos ${err}`})
+  Product.findById(productId, (err, product) =>{
+    if(err) return res.status(500).send({message:`Error al borrar el producto de la base de datos ${err}`})
 
     product.remove(err =>{
         if(err)return res.status(500).send({message:`Error al borrar el producto de la base de datos ${err}`})
