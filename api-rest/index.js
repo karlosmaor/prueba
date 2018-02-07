@@ -6,7 +6,7 @@ const app  = require('./app')
 
 const port = process.env.PORT || 3001
 
-mongoose.connect('mongodb://localhost:27017/shop', (err,res)=>{
+mongoose.connect('mongodb://localhost:27017/carlosShop', (err,res)=>{
   if(err){
     return console.log(`Error al conectarse a la base de datos: ${err}`);
   }
