@@ -3,7 +3,7 @@
 const express = require('express')
 const api = express.Router()
 
-const ProductCtrl = require('./controles/product')
+const ProductCtrl = require('../controles/product')
 
 api.get('/product', ProductCtrl.getProducts)
 
