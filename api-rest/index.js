@@ -53,7 +53,12 @@ app.post('/api/product', (req,res) =>{
 })
 
 app.put('/api/product/:productId', (req,res) =>{
-
+  let productId = req.params.productId
+  let update = req.body
+  Product.findByIdAndUpdate(productId, update,  (err, productUpdated) =>{
+    if(err) return res.status(500).send({message:`Error al editar el producto de la base de datos ${err}`})
+    res.status(200).send({productUpdated})
+  })
 })
 
 app.delete('/api/product/:productId', (req,res) =>{
