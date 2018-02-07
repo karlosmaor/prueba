@@ -3,7 +3,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const app =  express()
-const ProductCtrl = require(./controles/product)
+const ProductCtrl = require('./controles/product')
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
