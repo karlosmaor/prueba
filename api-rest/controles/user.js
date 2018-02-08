@@ -11,7 +11,7 @@ function signUp(req,res){
     password: req.body.password
   })
 
-  User.find({email: req.body.email}, (err,user){
+  User.find({email: req.body.email}, (err,user) =>{
     if(err) return res.status(500).send({message: err})
     res.status(200).send(user)
   })
