@@ -24,8 +24,6 @@ function signUp(req,res){
 
   })
 
-
-
 }
 
 function signIn(req,res){
