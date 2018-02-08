@@ -11,12 +11,17 @@ function signUp(req,res){
     password: req.body.password
   })
 
-  user.save((err)=>{
+  User.find({email: req.body.email}, (err,user){
+    if(err) return res.status(500).send({message: err})
+    res.status(200).send(user)
+  })
+
+/*  user.save((err)=>{
     if(err) return res.status(500).send({message: `Error registrando nuevo usuario: ${err}`})
 
     res.status(201).send({token: service.createToken(user)})
   })
-
+*/
 }
 
 function signIn(req,res){
