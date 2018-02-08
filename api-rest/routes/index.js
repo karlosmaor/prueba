@@ -2,7 +2,7 @@
 
 const express = require('express')
 const api = express.Router()
-const auth = require('../middlewares/auth')
+const auth = require('../middleswares/auth')
 
 const ProductCtrl = require('../controles/product')
 
