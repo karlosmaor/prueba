@@ -29,7 +29,7 @@ function decodeToken(token){
       }
       resolve(payLoad.sub)
     }catch(err){
-      console.log('erroooooor');
+      console.log(err);
       reject({
         status: 500,
         message: 'Invalid Token'
