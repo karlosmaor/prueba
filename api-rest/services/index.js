@@ -19,6 +19,7 @@ function decodeToken(token){
   const decoded = new Promise((resolve, reject)=>{
     try{
       payLoad = jwt.decode(token, config.SECRET_TOKEN)
+      console.log(payLoad)
 
       if(payLoad.exp <= moment().unix()){
         reject({
@@ -28,6 +29,7 @@ function decodeToken(token){
       }
       resolve(payLoad.sub)
     }catch(err){
+      console.log('erroooooor');
       reject({
         status: 500,
         message: 'Invalid Token'
