@@ -18,8 +18,7 @@ function createToken(user){
 function decodeToken(token){
   const decoded = new Promise((resolve, reject)=>{
     try{
-      payLoad = jwt.decode(token, config.SECRET_TOKEN)
-      console.log(payLoad)
+      const payLoad = jwt.decode(token, config.SECRET_TOKEN)
 
       if(payLoad.exp <= moment().unix()){
         reject({
@@ -29,7 +28,7 @@ function decodeToken(token){
       }
       resolve(payLoad.sub)
     }catch(err){
-      console.log(err);
+    
       reject({
         status: 500,
         message: 'Invalid Token'
