@@ -15,4 +15,32 @@ function createToken(user){
 
 }
 
-module.expports = createToken
+function decodeToken(token){
+  const decoded = new Promise((resolve, reject)=>{
+    try{
+      payLoad = jwt.decode(token, config.SECRET_TOKEN)
+
+      if(payLoad.exp <= moment().unix()){
+        reject({
+          status: 401,
+          message: 'El Token ha expirado'
+        })
+      }
+
+      resolve(payLoad.sub)
+
+    }catch(err){
+      reject({
+        status: 500,
+        message: 'Invalid Token'
+      })
+    }
+  })
+
+  return decoded
+}
+
+module.expports = {
+   createToken,
+   decodeToken
+}
