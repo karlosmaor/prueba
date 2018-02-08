@@ -38,7 +38,7 @@ function decodeToken(token){
   return decoded
 }
 
-module.expports = {
+module.exports = {
    createToken,
    decodeToken
 }
