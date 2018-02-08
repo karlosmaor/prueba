@@ -11,17 +11,21 @@ function signUp(req,res){
     password: req.body.password
   })
 
-  User.find({email: req.body.email}, (err,user) =>{
+  User.find({email: req.body.email}, (err,user2) =>{
     if(err) return res.status(500).send({message: err})
-    res.status(200).send(user)
+
+    if(user2.length != 0) return res.status(500).send({message: 'EL correo ya existe en nuestra base de datos'})
+
+    user.save((err)=>{
+      if(err) return res.status(500).send({message: `Error registrando nuevo usuario: ${err}`})
+
+      res.status(201).send({token: service.createToken(user)})
+    })
+
   })
 
-/*  user.save((err)=>{
-    if(err) return res.status(500).send({message: `Error registrando nuevo usuario: ${err}`})
 
-    res.status(201).send({token: service.createToken(user)})
-  })
-*/
+
 }
 
 function signIn(req,res){
